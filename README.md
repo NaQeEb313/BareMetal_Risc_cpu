@@ -1,98 +1,111 @@
 
----
 
-## **8-bit FSM Based Processor**
+```md
+## 32-bit FSM Based Processor
 
-### **About**
+### About
 
-A simple 8-bit processor designed using a Finite State Machine (FSM) based control unit.
-The processor executes instructions in multiple cycles, following the classic stages: fetch, decode, execute, and writeback.
+A simple 32-bit processor designed using a Finite State Machine (FSM) based control unit.  
+The processor executes instructions in multiple cycles: fetch, decode, execute, and writeback.
 
-This project was built to understand how a CPU operates at a low level, including instruction handling, control flow, and register operations.
-
----
-
-### **Features**
-
-* 8-bit custom instruction format
-* Multi-cycle execution (FSM controlled)
-* Basic instruction set:
-
-  * LOAD
-  * ADD
-  * SUB
-  * HALT
-* Two general-purpose registers (A, B)
-* Sequential instruction execution
-* Simple control unit design
+This project is made to understand low level CPU working like instruction execution, register operations, and memory access.
 
 ---
 
-### **Instruction Format**
+### Features
+
+- 32-bit custom instruction format  
+- Multi-cycle execution (FSM controlled)  
+- Separate instruction and data memory  
+
+- Basic instruction set:
+  - LOAD  
+  - STORE  
+  - ADD  
+  - SUB  
+  - AND  
+  - OR  
+  - XOR  
+  - MUL  
+  - DIV  
+  - MOD  
+  - SLT  
+  - SHIFT (left/right)  
+  - NOT  
+  - MOV  
+  - HALT  
+
+- 16 general-purpose registers  
+- Sequential execution  
+
+---
+
+### Instruction Format
 
 ```
-[7:6] Opcode | [5:4] Destination | [3:0] Immediate
-```
 
-**Example:**
+[31:28] Opcode | [27:24] rd | [23:20] rs1 | [19:16] rs2 | [15:0] Immediate
 
-```
-00_00_0101 → LOAD A, 5
 ```
 
 ---
 
-### **Registers**
+### Registers
 
-* `reg_A` → primary accumulator (stores final results)
-* `reg_B` → secondary register
-* `pc` → program counter
-* `instr` → instruction register
-
----
-
-### **Working**
-
-The processor operates through the following FSM states:
-
-* **IDLE** → waits for start signal
-* **FETCH** → reads instruction from memory
-* **DECODE** → interprets opcode and operands
-* **EXECUTE** → performs the operation
-* **WRITEBACK** → stores result in register
-* **HALT** → stops execution
-
-Each instruction is executed over multiple clock cycles, making the design simple and easy to understand.
+- reg_file[0:15] → general purpose registers  
+- pc → program counter  
+- instr → instruction register  
 
 ---
 
-### **Example Program**
+### Memory
+
+- memory → instruction memory  
+- data_mem → data memory  
+
+---
+
+### Working
+
+The processor works using FSM states:
+
+- IDLE → waits for start  
+- FETCH → fetch instruction from memory  
+- DECODE → decode instruction fields  
+- EXECUTE → perform ALU or memory operation  
+- WRITEBACK → write result to register or memory  
+- HALT → stop execution  
+
+Each instruction takes multiple clock cycles.
+
+---
+
+### Example Program
 
 ```
-LOAD A, 5
-LOAD B, 3
-ADD A, B
-SUB A, B
+
+LOAD R0, 0
+LOAD R1, 1
+ADD R2, R0, R1
+STORE R2, 2
+MUL R3, R0, R1
 HALT
+
 ```
 
 ---
 
-### **Output**
+### Output
 
-The final result is stored in register `A`.
-
----
-
-### **Future Improvements**
-
-* Expand instruction set
-* Add more registers
-* Design a proper datapath + control separation
-* Upgrade to pipelined architecture
-* Build a simple assembler
+Result is stored in destination registers (example: R2, R3).
 
 ---
 
+### Future Improvements
 
-
+- Add branch instructions  
+- Add stack support (CALL/RET)  
+- Improve datapath design  
+- Convert to pipelined CPU  
+- Build assembler for instruction input  
+```
