@@ -65,6 +65,11 @@ The processor operates through the following FSM states:
 Each instruction is executed over multiple clock cycles, making the design simple and easy to understand.
 
 ---
+## **Processor FSM Diagram**
+
+<p align="center">
+  <img src="Cpu_8_bit.drawio.png" width="600"/>
+</p>
 
 ### **Example Program**
 
