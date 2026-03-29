@@ -52,6 +52,7 @@ This project was built to understand how a CPU operates at a low level, includin
 ---
 
 ### **Working**
+<img width="627" height="437" alt="image" src="https://github.com/user-attachments/assets/ea1f44fa-eb6d-4580-81af-923072251204" />
 
 The processor operates through the following FSM states:
 
