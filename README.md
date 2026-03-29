@@ -53,6 +53,8 @@ This project was built to understand how a CPU operates at a low level, includin
 
 ### **Working**
 
+<img width="627" height="437" alt="image" src="https://github.com/user-attachments/assets/a4069f51-5704-48c5-82d6-51cef627e5bf" />
+
 The processor operates through the following FSM states:
 
 * **IDLE** → waits for start signal
