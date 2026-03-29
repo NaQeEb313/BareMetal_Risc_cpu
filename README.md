@@ -64,6 +64,9 @@ The processor works using the following FSM states:
 
 Each instruction takes multiple clock cycles.
 
+<img width="727" height="505" alt="image" src="https://github.com/user-attachments/assets/a6411052-1960-4801-a3bb-c15ecddba7e5" />
+
+
 ---
 
 Example Program
